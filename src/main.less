@@ -1,3 +1,125 @@
 @import url(./styles/breakpoints.less);
 @import url(./styles/colors.less);
 @import url(./styles/grid.less);
+@import url(./styles/reused.less);
+
+.header {
+    
+    &__left {
+        .logo {
+            width: 155px;
+            height: 55px;
+            margin: 10px 5px;
+        }
+    }
+
+    &__top {
+        .burger {
+            display: block;
+            position: fixed;
+            z-index: 3;
+            cursor: pointer;
+            top: 20px;
+            right: 20px;
+
+            &__bar {
+                display: block;
+                width: 26.21px;
+                height: 2px;
+                margin: 0 auto 9px;
+                background-color: #000;
+                transition: all .6s ease-in-out;
+                position: relative;
+                border-radius: 500px;
+                &::before{
+                    content: "";
+                    top: 8px;
+                    position: absolute;
+                    width: 27px;
+                    height: 4px;
+                    border-radius: 500px;
+                }
+    
+                &::after {
+                    content: "";
+                    top: -8px;
+                    position: absolute;
+                    width: 27px;
+                    height: 4px;
+                    border-radius: 500px;
+                }
+            }
+        }
+
+        &__nav {
+            display: none;
+        }
+    }
+
+    &__right {
+        display: none;
+    }
+}
+
+@media screen and (min-width: @x-large) {
+    .header {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(1, 1fr);
+        margin-bottom: auto;
+        &__left {
+            .logo {
+                width: 210px;
+                height: 71px;
+                margin: 20px;
+            }
+        }
+
+        &__top {
+            &__nav {
+                display: block;
+            }
+        }
+
+        &__right {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            width: 100%;
+            &__social-media {
+                    visibility: visible;
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    align-content: center;
+                    padding-left: 70px;
+
+                &__circle {
+                    visibility: visible;
+                    display: inline-block;
+                    box-sizing: border-box;
+                    position: relative;
+                    text-align: center;
+                    width: 28px;
+                    height: 28px;
+                    border-radius: 50%;
+                    background: @main-black;
+                    margin-right: 5px;
+
+                    i {
+                        color: @main-white;
+                        height: 15px;
+                        margin-top: 6px;
+                    }
+
+                    &:hover {
+                        background: @white-alabaster;
+                        i {
+                            color: @main-black;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
