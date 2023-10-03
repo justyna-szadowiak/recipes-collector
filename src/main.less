@@ -2,6 +2,7 @@
 @import url(./styles/colors.less);
 @import url(./styles/grid.less);
 @import url(./styles/reused.less);
+@import url(./styles/font.less);
 
 .header {
     &__left {
@@ -63,6 +64,19 @@
                 align-items: center;
                 justify-content: center;
                 padding-top: 30px;
+            
+                &__page {
+                    display: flex;
+                    list-style: none;
+                    align-items: center;
+                    justify-content: center;
+                    padding-bottom: 20px;
+
+                    a {
+                        text-decoration: none;
+                        color: @white-alabaster;
+                    }
+                }
             }
         }
     }
